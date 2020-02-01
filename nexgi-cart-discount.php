@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Nexgi Payment Gateway Type Discount
- * Plugin URI: https://www.nexgi.com
+ * Plugin URI: https://github.com/kumaranup594/nexgi-woocommerce-discount-on-payment-gateway
  * Description: You can add payment gateway type discount
  * Version: 6.1
  * Author: NexGen WordPress Development Team
