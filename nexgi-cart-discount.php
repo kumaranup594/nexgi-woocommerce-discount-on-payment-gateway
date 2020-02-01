@@ -72,7 +72,18 @@ add_action('admin_menu', 'nexgi_cart_discount_admin_menu');
 
 function nexgi_cart_discount_admin_page_contents() {
     ?>
-    <div id="wpwrap">
+    <style>
+        .each_payment_gateway .form-group {
+        display: inline-block;
+    width: 33%;
+}
+.each_payment_gateway{
+    margin-top: 10px;
+    background: #d9d9d9;
+    padding: 9px 15px 19px 15px;
+}
+        </style>
+    <div>
         <h1>
             <?php esc_html_e('NexGi Payment Gateway Discount', 'nexgi-cart-discount'); ?>
         </h1>
@@ -106,23 +117,26 @@ function nexgi_cart_discount_admin_page_contents() {
                 <h2>
                     Setting for Payment Gateway <?php echo $pg_values->method_title ?> [<?php echo $pg_code ?>] 
                 </h2>
-                <div>
+                <div class="form-group">
                     <label>Discount Type</label>
                     <?php echo form_dropdown('dis_type_' . $pg_code, $dis_types, $nexgi_cart_dis_obj->getOptionValue('dis_type_', $pg_code, $pg_settings)) ?>
                 </div>
-                <div>
+                <div class="form-group">
                     <label>Discount value</label>
                     <?php echo form_input('dis_val_' . $pg_code, $nexgi_cart_dis_obj->getOptionValue('dis_val_', $pg_code, $pg_settings)) ?>
                 </div>
+                <div class="form-group">
                 <label>Discount label</label>
                 <?php echo form_input('dis_label_' . $pg_code, $nexgi_cart_dis_obj->getOptionValue('dis_label_', $pg_code, $pg_settings)) ?>
+                </div>
             </div>
-        </div>
+        
 
         <?php
     }
     ?>
-    <input type="submit" name="save_payment_gateway_options">
+        <br>   
+    <input type="submit" class="button button-primary" name="save_payment_gateway_options">
     </form>
     </div>
     <?php
